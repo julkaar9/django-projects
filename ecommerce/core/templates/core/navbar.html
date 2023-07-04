@@ -1,0 +1,32 @@
+{% block content %}
+<nav class="navColor">
+    <div class="nav-wrapper">
+        <div class="flexRow spaceEvenly">
+            <div>
+                <a href="{% url 'core:home' %}" class="brand-logo logo">Ecom</a>
+            </div>
+            <div class="searchWidth">
+                <form method="POST" action="{% url 'core:search' %}">
+                    {% csrf_token %}
+                    <div class=" input-field">
+                        <input name="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'core:product_home' %}">categories</a></li>
+
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'core:order_history' %}">orders</a></li>
+                <li><a href="{% url 'core:cart' %}">cart</a></li>
+                <li><a class="text-btn" href="{% url 'user:logout' %}">logout</a></li>
+                {% else %}
+                <li><a class="btn" href="{% url 'user:login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}

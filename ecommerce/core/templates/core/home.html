@@ -1,0 +1,65 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#one!"><img class="caroselImage"
+                src="https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></a>
+        <a class="carousel-item" href="#two!"><img class="caroselImage"
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></a>
+    </div>
+    <div class="sizedBox"></div>
+    <div class="cardSection">
+        <div class="Section_label flexColumn centeredBox">
+            <h3>New Products</h3>
+            <a class="btn-flat" href="{% url 'core:product_home' %}"> <i class="material-icons">send</i>
+            </a>
+        </div>
+        {% for product in new_products %}
+        <div class="card card-container">
+            <div class="card-image">
+                <img class="cardImg" src="storage/{{ product.image }}">
+                <span class="card-title">{{product.title}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{product.description}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'core:product' product.slug product.pk  %}">Continue</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    <div class="sizedBox"></div>
+    <div class="cardSection">
+        {% for obj in categories %}
+        <div class="card card-container">
+            <div class="card-image">
+                <img class="cardImg" src="storage//{{ obj.category__image }}">
+                <span class="card-title">{{obj.category.name}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{obj.category__description}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'core:product_home' %}">Continue</a>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="Section_label centeredBox">
+            <h4>Browse Categories</h4>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, { fullWidth: true });
+    });
+</script>
+{% endblock %}

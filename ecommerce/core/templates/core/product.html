@@ -1,0 +1,38 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="sizedBox"></div>
+    <div class="container flexRow">
+        <div class="productImgContainer">
+            <img class="productImg" src="{{ product.image.url }}" />
+        </div>
+        <div class="productDescriptionBox">
+            <div class="flexColumn">
+                <h2>{{product.title}}</h2>
+                <p>{{product.description}}</p>
+                <h3>{{product.cost}}</h3>
+                {% if user.is_authenticated %}
+                <form class="login product__input flexColumn centeredBox" method="POST"
+                    action="{% url 'core:product' product.slug product.pk %}">
+                    {% csrf_token %}
+                    <div class="input-field ">
+                        <i class="material-icons prefix">add</i>
+                        <input name="quantity" id="icon_prefix" value="{{serializer.data.quantity}}" type="number"
+                            min="{{serializer.data.quantity}}" max="{{product.stock}}" class="validate">
+                        <label for="icon_prefix">Quantity</label>
+                    </div>
+                    <button class="btn" type="submit">Add to cart</button>
+                </form>
+                {% else %}
+                <div>
+                    <a class="btn  product__input flexColumn centeredBox" href="{% url 'user:login' %}">Login to add</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% load rest_framework %}
+{% block content%}
+
+<body>
+    <div class="container">
+        <div class="flexColumn">
+
+            <div class="flexRow centeredBox">
+                <h3>Order History</h3>
+            </div>
+
+            <div class="flexColumn">
+                <table class="highlight centered z-depth-1">
+                    <thead class="">
+                        <tr>
+                            <th>Product </th>
+                            <th>Quantity</th>
+                            <th>Product Cost</th>
+                            <th>Total Cost</th>
+                            <th>Status</th>
+                            <th>Order Id</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for added_product in added_products %}
+                        <tr>
+                            <td>{{added_product.product.title}}</td>
+                            <td>{{added_product.quantity}}</td>
+                            <td>{{added_product.product.cost}}</td>
+                            <td>{{added_product.get_total_item_price}}</td>
+                            <td>{{added_product.status}}</td>
+                            <td>{{added_product.order.number}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+</body>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="flexColumn">
+        <div class="flexRow centeredBox">
+            <h1>Cart</h1>
+        </div>
+        <div class="flexRow cartProduct">
+            <h5>Product</h5>
+            <h5>price</h5>
+            <h5>quantity</h5>
+            <h5>remove</h5>
+        </div>
+        {% for added_product in added_products %}
+        <div class="flexRow cartProduct">
+            <div class="cartImageContainer"><img class="productImg" src="{{ added_product.product.image.url }}" /></div>
+            <div>{{added_product.get_total_item_price}}</div>
+            <form class=" " method="POST" action="{% url 'core:cart_modify' added_product.pk %}">
+                {% csrf_token %}
+                <div class="flexRow">
+                    <input name="quantity" value="decrease" type="hidden">
+                    <button class="btn" type="submit"><i class="material-icons prefix">remove</i></button>
+                </div>
+            </form>
+            <div>{{added_product.quantity}}</div>
+            <form class=" " method="POST" action="{% url 'core:cart_modify' added_product.pk%}">
+                {% csrf_token %}
+                <div class="flexRow">
+                    <input name="quantity" value="increase" type="hidden">
+                    <button class="btn" type="submit"><i class="material-icons prefix">add</i></button>
+                </div>
+            </form>
+            <form class=" " method="POST" action="{% url 'core:cart_modify' added_product.pk%}">
+                {% csrf_token %}
+                <input name="quantity" value="remove" type="hidden">
+                <button class="btn" type="submit"><i class="material-icons prefix">remove_shopping_cart</i></button>
+            </form>
+        </div>
+        {% endfor %}
+        {% if added_products|length > 0%}
+        <div class="flexRow centeredBox">
+            <a class="btn" href="{% url 'core:address' %}">Proceed to pay</a>
+
+
+            <div class="totalPrice">
+                <p>Total Price: {{total_price}}</p>
+            </div>
+        </div>
+        {% else %}
+        <div class="flexRow centeredBox">
+            <p>Empty Cart</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

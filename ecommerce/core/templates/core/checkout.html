@@ -1,0 +1,96 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="container">
+        <div class="flexColumn alignCenter">
+            <h3>Cart</h3>
+            <div class="flexColumn alignSelfStretch">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product </th>
+                            <th>Quantity</th>
+                            <th>Product Cost</th>
+                            <th>Total Cost</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for added_product in added_products %}
+                        <tr>
+                            <td>{{added_product.product.title}}</td>
+                            <td>{{added_product.quantity}}</td>
+                            <td>{{added_product.product.cost}}</td>
+                            <td>{{added_product.get_total_item_price}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Shipping Address</h3>
+
+            <form method="GET" action="{% url 'core:checkout' %}">
+                <div class="flexRow">
+                    <div>
+                        <select name="address">
+                            <option value="" disabled selected>Select Address</option>
+                            {% for address in shipping_addresses%}
+                            <option value="{{address.pk}}">{{address.name}} {{address.phone}}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <div class="sizedWidth"></div>
+                    <button class="btn-floating btn-small waves-effect" type="submit">go</button>
+                </div>
+            </form>
+            <div class="shippingBox">
+                <div class="flexColumn">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>name</th>
+                                <th>phone</th>
+                                <th>address 1</th>
+                                <th>address 2</th>
+                                <th>zip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{chosen_address.name}}</td>
+                                <td>{{chosen_address.phone}}</td>
+                                <td>{{chosen_address.address_line1}}</td>
+                                <td>{{chosen_address.address_line2}}</td>
+                                <td>{{chosen_address.zip}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sizedBox"></div>
+            {%if chosen_address %}
+            <div class="flexRow centeredBox">
+                <form method="POST" action="{% url 'core:order' %}">
+                    {% csrf_token %}
+                    <input name="selected_address" value="{{chosen_address.pk}}" type="hidden">
+                    <button class="btn waves-effect" type="submit">Pay</button>
+                </form>
+            </div>
+            {% else %}
+            <div class="flexRow centeredBox"><a class="btn" href="{% url 'core:address' %}">Add Address</a></div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="container">
+        <div class="flexRow centeredBox">
+            <h2>Shipping Address</h2>
+        </div>
+        <div class="flexRow">
+            <div class="shippingLeft">
+
+                <!-- <img class="imgBox_img" src="{{ product.image.url }}" /> -->
+            </div>
+            <div class="shippingBox">
+                <div class="flexColumn">
+                    <form method="POST" action="{% url 'core:address' %}">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <i class="material-icons prefix">person</i>
+                            <input name="name" value="{{serializer.data.name}}" id="icon_prefix" type="text"
+                                class="validate">
+                            <label for="icon_prefix">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">local_phone</i>
+                            <input name="phone" value="{{serializer.data.phone}}" id="icon_prefix" type="text"
+                                class="validate">
+                            <label for="icon_prefix">Phone</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">add_location</i>
+                            <input name="address_line1" value="{{serializer.data.address_line1}}" id="icon_prefix"
+                                type="text" class="validate">
+                            <label for="icon_prefix">Address 1</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">add_location</i>
+                            <input name="address_line2" value="{{serializer.data.address_line2}}" id="icon_prefix"
+                                type="text" class="validate">
+                            <label for="icon_prefix">Address 2</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">location_on</i>
+                            <input name="zip" value="{{serializer.data.zip}}" id="icon_prefix" type="text"
+                                class="validate">
+                            <label for="icon_prefix">Zip</label>
+                        </div>
+                        <div class="input-field">
+                            <p>
+                                <label>
+                                    <input name="default_address" type="checkbox" />
+                                    <span>Save this as default address</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="flexRow centeredBox">
+                            <button class="btn" type="submit">add</button>
+                            <div class="sizedWidth"></div>
+                            <a class="btn" href="{% url 'core:checkout' %}">checkout</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

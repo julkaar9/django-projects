@@ -1,0 +1,61 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="flexRow centeredBox">
+        <h2>Products</h2>
+    </div>
+    <div class=" flexRow">
+        <div class="filterBox flexColumn">
+            <form class=" " method="GET" action="{% url 'core:product_home' %}">
+                <div>
+                    {% for category in categories %}
+                    <p>
+                        <label>
+                            <input name="categories" value="{{category.category__name}}" type="checkbox"
+                                class="filled-in" />
+                            <span id="{{category.category__name}}">{{category.category__name}}</span>
+                        </label>
+                    </p>
+                    {% endfor %}
+                </div>
+
+                <div class="productLabels">
+                    <select name="label">
+                        <option value="" disabled selected>labels</option>
+                        {% for label in product_labels%}
+                        <option value="{{label}}">{{label}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Materialize Select</label>
+                </div>
+                <button class="btn" type="submit">Filter</button>
+            </form>
+            <!-- <img class="imgBox_img" src="{{ product.image.url }}" /> -->
+        </div>
+        <div class="productBox cardSection">
+            {% for product in products %}
+            <div class="card card-container">
+                <div class="card-image">
+                    <img class="cardImg" src="{{ product.image.url }}">
+                    <span class="card-title">{{product.title}}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{product.description}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'core:product' product.slug product.pk  %}">Continue</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+    });
+</script>
+{% endblock %}

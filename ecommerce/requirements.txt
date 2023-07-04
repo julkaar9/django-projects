@@ -1,0 +1,5 @@
+black
+Django 
+djangorestframework  
+isort
+waitress

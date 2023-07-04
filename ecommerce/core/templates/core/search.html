@@ -1,0 +1,39 @@
+{% extends "core/header.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="container">
+        <div class="flexColumn">
+
+            <div class="flexRow centeredBox">
+                <h3>Search Results</h3>
+            </div>
+
+            <div class="flexColumn">
+                <table class="highlight centered z-depth-1">
+                    <thead class="">
+                        <tr>
+                            <th>Product </th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for product in products %}
+                        <tr>
+                            <td><a href="{% url 'core:product' product.slug product.pk %}">{{product.title}}</a></td>
+                            <td>{{product.cost}}</td>
+                            <!-- <td>{{product.product.cost}}</td>
+                            <td>{{product.get_total_item_price}}</td>
+                            <td>{{product.status}}</td>
+                            <td>{{product.order.number}}</td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+</body>
+{% endblock %}
