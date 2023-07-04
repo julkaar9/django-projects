@@ -1,0 +1,8 @@
+black
+Django
+django-phonenumber-field[phonenumberslite]
+djangorestframework
+djangorestframework-simplejwt
+drf-yasg
+isort
+waitress

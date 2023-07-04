@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "3bda0f6f-226b-4969-a128-7d2c38007a70",
+		"name": "spam_finder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23285219"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"+918900000010\",\r\n    \"password\": \"test@1234\",\r\n    \"username\": \"user9\",\r\n    \"email\":\"user10@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/signup/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"+918900000008\",\r\n    \"password\": \"test@1234\",\r\n    \"username\": \"user8\",\r\n    \"email\":\"user8@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/signup/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"signup",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:29:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"phone\": \"+918900000008\",\n    \"username\": \"user8\",\n    \"email\": \"user8@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "token_pair_obtain",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"+918637571629\",\r\n    \"password\": \"test@1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token_pair_obtain",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"+918900000008\",\r\n    \"password\": \"test@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:30:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "502"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3ODY3MTAyOSwianRpIjoiMTY5NDkyYWE2MTc4NGRhNDhjM2IzZWEyMjdmZTNkMDIiLCJ1c2VyX2lkIjo4LCJwaG9uZSI6Iis5MTg5MDAwMDAwMDgifQ.03mfDl4v4Q0Co1LRmB6VKaIG-eHcLayA1dd5GOgTEjw\",\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTg0OTI5LCJqdGkiOiJjNzg3NzdlZTI3NDI0YzgxYTE4NGUyMGJiNTI0YWFkYSIsInVzZXJfaWQiOjgsInBob25lIjoiKzkxODkwMDAwMDAwOCJ9.-0QyM9gJ2D8ehx3-Pc9eQ_22DD6lrVtrp13TbnvEspw\"\n}"
+				}
+			]
+		},
+		{
+			"name": "token_refresh",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3ODY4MDM1NSwianRpIjoiZGQ1Zjk5OGE0NGY2NGViYWI3NTY2YmU2OTAyYTgzMTYiLCJ1c2VyX2lkIjoxLCJwaG9uZSI6Iis5MTg2Mzc1NzE2MjkifQ.4fH0Qt6VWd3QWhSoHFUNgdaPnaNmsMTv2rPboKMgMMo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token_refresh",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3ODY2ODE0MywianRpIjoiMGE3NmEzMjE1NjIxNDMxNmExYjM4NGEyM2Q5ZTZiY2QiLCJ1c2VyX2lkIjo3LCJwaG9uZSI6Iis5MTg5MDAwMDAwMDYifQ.PzM9vA8_S_7_xlC7AphYHjtKNq6hkPn4E94JSrFJzRg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:30:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTg0OTM5LCJqdGkiOiJjZjc4M2ZiZDI3MDI0ZmY5YjdmM2Y4ZWQzMjhjNDEyOCIsInVzZXJfaWQiOjcsInBob25lIjoiKzkxODkwMDAwMDAwNiJ9.mzaKI5jzNFBJT80DEKEqrwHmjpX_Ze8rC91GpAQmkgw\"\n}"
+				}
+			]
+		},
+		{
+			"name": "spam",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTk0Mjk1LCJqdGkiOiJhOTU2OWQxMmM5OTQ0NGJhOGMxOWNhNWNiMjdkZTM2MyIsInVzZXJfaWQiOjEsInBob25lIjoiKzkxODYzNzU3MTYyOSJ9.KanNt99ck9t1xIMijBKOY3Sfdc7FLRBpaZz8TYtKNvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"target_phone\": \"+918900000007\",\r\n    \"name\":\"seven\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/spam/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"spam",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "spam",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"target_phone\": \"+918900000007\",\r\n    \"name\":\"seven\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/spam/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"spam",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:31:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"target_phone\": \"+918900000007\",\n    \"reporter_phone\": 7,\n    \"name\": \"seven\"\n}"
+				}
+			]
+		},
+		{
+			"name": "phone-search",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTk0Mjk1LCJqdGkiOiJhOTU2OWQxMmM5OTQ0NGJhOGMxOWNhNWNiMjdkZTM2MyIsInVzZXJfaWQiOjEsInBob25lIjoiKzkxODYzNzU3MTYyOSJ9.KanNt99ck9t1xIMijBKOY3Sfdc7FLRBpaZz8TYtKNvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/phone-search/?q=%2B918900000007",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"phone-search",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "%2B918900000007"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "phone-search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/phone-search/?q=%2B918900000007",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"phone-search",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "%2B918900000007"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:54:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "234"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"seven\",\n        \"spam_count\": 2,\n        \"phone\": \"+918900000007\"\n    },\n    {\n        \"type\": \"reported spam\",\n        \"name\": null,\n        \"spam_count\": 2,\n        \"phone\": \"+918900000007\"\n    },\n    {\n        \"type\": \"reported spam\",\n        \"name\": \"seven\",\n        \"spam_count\": 2,\n        \"phone\": \"+918900000007\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "contact",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTg1NDY0LCJqdGkiOiIzOWM2ZmJlYjJkZWU0ZTA4OGI2Y2NiY2EwOTYxNWE5OCIsInVzZXJfaWQiOjcsInBob25lIjoiKzkxODkwMDAwMDAwNiJ9._5qI4ry_TreJRlcl-qLSjmpTgYIfFsNOaggSvWNB2wQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"+918900000005\",\r\n    \"name\": \"userFive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/contacts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contacts",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "contact",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"+918900000005\",\r\n    \"name\": \"userFive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/contacts/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"contacts",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:39:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"user\": 7,\n        \"phone\": \"+918900000005\",\n        \"name\": \"userFive\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "name-search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTk0Mjk1LCJqdGkiOiJhOTU2OWQxMmM5OTQ0NGJhOGMxOWNhNWNiMjdkZTM2MyIsInVzZXJfaWQiOjEsInBob25lIjoiKzkxODYzNzU3MTYyOSJ9.KanNt99ck9t1xIMijBKOY3Sfdc7FLRBpaZz8TYtKNvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/name-search/?q=use",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"name-search",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "use"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "name-search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"q\":\"user1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/name-search/?name=user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"name-search",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:40:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1353"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"type\": \"registered\",\n        \"name\": \"user1\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000000\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user1\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000001\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user2\",\n        \"spam_count\": 2,\n        \"phone\": \"+918900000002\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user2\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000003\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user5\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000005\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user6\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000006\"\n    },\n    {\n        \"type\": \"registered\",\n        \"name\": \"user8\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000008\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"userOne\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000001\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"userTwo\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000003\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"user5\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000005\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"user1\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000001\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"user6\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000006\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"userTwo\",\n        \"spam_count\": 2,\n        \"phone\": \"+918900000002\"\n    },\n    {\n        \"type\": \"unregistered\",\n        \"name\": \"userFive\",\n        \"spam_count\": 0,\n        \"phone\": \"+918900000005\"\n    },\n    {\n        \"type\": \"reported spam\",\n        \"name\": \"possUser6Spam\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000006\"\n    },\n    {\n        \"type\": \"reported spam\",\n        \"name\": \"scammerUser2Two\",\n        \"spam_count\": 2,\n        \"phone\": \"+918900000002\"\n    },\n    {\n        \"type\": \"reported spam\",\n        \"name\": \"someScammerUser\",\n        \"spam_count\": 1,\n        \"phone\": \"+918900000001\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "detailed-search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTk0Mjk1LCJqdGkiOiJhOTU2OWQxMmM5OTQ0NGJhOGMxOWNhNWNiMjdkZTM2MyIsInVzZXJfaWQiOjEsInBob25lIjoiKzkxODYzNzU3MTYyOSJ9.KanNt99ck9t1xIMijBKOY3Sfdc7FLRBpaZz8TYtKNvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/phone-directory/?q=%2B918900000005",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"phone-directory",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "%2B918900000005"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "detailed-search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\":\"+918637571629\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/phone-directory/?q=%2B918900000001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"phone-directory",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "%2B918900000001"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 01:56:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"phone\": \"+918900000001\",\n        \"username\": \"user1\",\n        \"email\": \"user1@gmail.com\"\n    },\n    \"phone\": \"+918900000001\",\n    \"spam_count\": 1,\n    \"contact_count\": 2,\n    \"spam_aliases\": [\n        {\n            \"name\": \"someScammerUser\"\n        }\n    ],\n    \"contact_aliases\": [\n        {\n            \"name\": \"userOne\"\n        },\n        {\n            \"name\": \"user1\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
